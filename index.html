@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>OPeNDAP Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Martel:200,400,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="nav"></nav>
+
+    <div class="content">
+        <div class="introduction" id="introduction">
+            <h1 class="center-text">OPeNDAP:<br>Advanced Software for Remote Data Retrieval</h1>
+            <h2 class="center-text">OPeNDAP is a framework that simplifies<br>all aspects of scientific data networking.</h2>
+            <i id="more-info" class="material-icons large-icon down-arrow">arrow_drop_down_circle</i>
+        </div>
+
+        <div id="opendap-software" class="full-screen coral">
+            <h1 style="padding-top:20vh">What you can do with<br>OPeNDAP</h1>
+            <div class="hook-text">
+                <div class="center-text">
+                    <i class="material-icons large-icon">dynamic_feed</i>
+                    <p class="hook-text-text">Transform your existing applications into OPeNDAP clients.</p>
+                </div>        
+                <div>
+                    <div class="center-text">
+                        <i class="material-icons large-icon">cloud_queue</i>
+                        <p class="hook-text-text">Make your local data accessible to remote locations, regardless of local storage format.</p>
+                    </div>
+                </div>
+                <div class="center-text">
+                    <i class="material-icons large-icon">remove_shopping_cart</i>
+                    <p class="hook-text-text">Take advantage of our paid support, or implement it yourself for free.</p>
+                </div>
+            </div>
+            <i id="more-info_2" class="material-icons large-icon down-arrow">arrow_drop_down_circle</i>
+        </div>
+
+        <div id="products" class="full-screen">
+            <h1 style="padding-top:20vh">OPeNDAP Software</h1>
+
+            <div class="products">
+                <div>
+                    <h2 id="hyrax-more-info"><a href="hyrax.html">Hyrax</a></h2>
+                    <h3>The next generation server from OPeNDAP. </h3>
+                    <p style="max-width: 500px;margin-left:auto;margin-right:auto;text-align: justify">
+                        Hyrax uses a modular design that employs a lightweight 
+                        Java servlet to provide the public-accessible 
+                        client interface, and a back-end daemon, the BES, to 
+                        handle the heavy lifting. The BES uses the same handlers 
+                        that are used with Server3 (also know as the CGI Server) 
+                        but loads those at run time.
+                    </p> 
+                </div>
+                <div>
+                    <h2>Libdap</h2>
+                    <h3>C++ SDK that contains an implementation of DAP 2.0 and DAP4.0</h3>
+                    <p style="max-width: 500px;margin-left:auto;margin-right:auto;text-align: justify">
+                        The libdap includes both Client- and Server-side 
+                        support classes. Our software distributions are signed
+                        using a public/private key pair.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+            <div>
+                <ul>
+                    <h3 style="text-align:left">About Us</h3>
+                    <li>History</li>
+                    <li>Workshops and Presentations</li>
+                    <li>Locations</li>
+                    <li>Supporters</li>
+                    <li>Get Involved</li>
+                    <li>OPeNDAP Updates</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <h3 style="text-align:left">Software</h3>
+                    <li>Hyrax</li>
+                    <li>Libdap</li>
+                    <li>Unsupported Software</li>
+                    <li>WCS Gateway Handler</li>
+                    <li>Software From Other Resources</li>
+                    <li>Required Third-party Software</li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <h3 style="text-align:left">Support</h3>
+                    <li>User Documentation</li>
+                    <li>Design Documentation</li>
+                    <li>Available Client Software</li>
+                    <li>Available Server Software</li>
+                    <li>Data Handlers</li>
+                    <li>OPeNDAP Mailing Lists</li>
+                    <li>OPeNDAP Wiki</li>
+                    <li>Software Wish List</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+        </div>
+
+    <script src="nav-bar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
