@@ -9,32 +9,31 @@ async function testing() {
 
     //document.body.innerHTML = html;
 
-    document.getElementById("more-info").addEventListener('click', () => {
-        document.getElementById("opendap-software").scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'center'
-        });
-    });
+    // document.getElementById("more-info").addEventListener('click', () => {
+    //     document.getElementById("opendap-software").scrollIntoView({ 
+    //         behavior: 'smooth',
+    //         block: 'center'
+    //     });
+    // });
 
-    document.getElementById("more-info_2").addEventListener('click', () => {
-        document.getElementById("products").scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'center'
-        });
-    });
+    // document.getElementById("more-info_2").addEventListener('click', () => {
+    //     document.getElementById("products").scrollIntoView({ 
+    //         behavior: 'smooth',
+    //         block: 'center'
+    //     });
+    // });
 
-    document.getElementById("hyrax-more-info").addEventListener('click', () => {
-        document.getElementById("hyrax-info").scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'center'
-        });
-    });
+    // document.getElementById("hyrax-more-info").addEventListener('click', () => {
+    //     document.getElementById("hyrax-info").scrollIntoView({ 
+    //         behavior: 'smooth',
+    //         block: 'center'
+    //     });
+    // });
 }
 
-function getUpdatesFromGithub() {
+function getUpdatesFromGithub(url) {
     return new Promise(resolve => {
-        let searchURL = "https://api.github.com/repos/alexporrello/DocumentControlToolbar/contents/README.md"
-        //let searchURL = "https://api.github.com/repos/OPENDAP/documentation/contents/UserGuideComprehensive.adoc";
+        let searchURL = "https://api.github.com/repos/alexporrello/opendap-website/contents/content-source/" + url;
 
         let request = new XMLHttpRequest();
         request.open('GET', searchURL, true);

@@ -6,6 +6,22 @@ body {
     margin-top: 60px;
 }
 
+footer {
+    font-family: 'Martel', serif;
+    background: whitesmoke;
+    margin:0px;
+    font-weight: 400;
+
+    padding: 50px;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 a {
     text-decoration: none;
 }
@@ -16,6 +32,7 @@ h1 {
     margin-top: 0px;
     text-align: center;
     line-height: 65px;
+    ad
 }
 
 h2 {
@@ -27,6 +44,11 @@ h2 {
 h3 {
     font-weight: 200;
     text-align: center;
+}
+
+#footer h3 {
+    text-align: left;
+    
 }
 
 hr {
@@ -131,45 +153,7 @@ b {
 }
 
 
-nav {
-    z-index: 15;
-    background-color: white;
-    width: 100%;
-    height: 60px;
-    margin:0px;
-    padding:0px;
-    position: fixed;
-    top: 0px;
-    border-bottom: 1px tomato solid;
-    color: darkslategray;   
-}
 
-#nav h1 {
-    font-size: 24px;
-    margin: 18px 20px;
-    line-height: 24px;
-}
-
-#nav ul {
-    margin:0px;
-    padding: 0px;
-    list-style-type: none;
-}
-
-#nav li {
-    float: left;
-}
-
-.float-right {
-    float: right !important;
-    margin: 17px 17px;
-}
-
-#nav li a {
-    display: block;
-    text-decoration: none;
-    color: darkslategray; 
-}
 
 .full-screen {
     width: 100%;
@@ -216,10 +200,6 @@ a {
     cursor: pointer
 }
 
-.home {
-    
-}
-
 .standard-border {
     background-color: whitesmoke;
     color: darkslategray;
@@ -237,16 +217,6 @@ a {
 .hyrax-logo {
     grid-row-start: 1;
     grid-row-end: 2;
-}
-
-.footer {
-    padding: 50px;
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 li {
