@@ -69,7 +69,7 @@ There are lots of ways you can help out with OPeNDAP development. You don't have
 
 However you choose to get involved, the first step is to subscribe to one or more of the OPeNDAP email lists.
 
-##Users (i.e., Testers and Bug Reporters)
+##Users
 
 Users are the core of the OPeNDAP. You let us know how we are doing and whether OPeNDAP is making your life easier. So, please use the OPeNDAP and let us know what's working for you and what is not.
 
