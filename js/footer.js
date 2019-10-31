@@ -53,8 +53,6 @@ class Footer {
 
         this.footer.appendChild(software);
 
-
-
         let support = document.createElement("div");
         let supportList = document.createElement("ul");
         support.appendChild(supportList);

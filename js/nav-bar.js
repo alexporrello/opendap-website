@@ -6,7 +6,8 @@ class NavBar {
         let supportA  = document.createElement("a");
         let hyraxA    = document.createElement("a");
 
-        let titleText = document.createElement("h1");
+        let titleText = document.createElement("div");
+        titleText.classList.add("nav-heading");
         titleText.appendChild(document.createTextNode("OPeNDAP"));
 
         titleA.appendChild(titleText)
@@ -15,7 +16,7 @@ class NavBar {
         supportA.appendChild(document.createTextNode("Support"));
         hyraxA.appendChild(document.createTextNode("Hyrax"));
 
-        titleA.href = "index.html";
+        titleA.href = "../html/index.html";
         aboutUsA.href = "";
         softwareA.href = "";
         supportA.href = "";
