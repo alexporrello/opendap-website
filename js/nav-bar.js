@@ -17,10 +17,10 @@ class NavBar {
         hyraxA.appendChild(document.createTextNode("Hyrax"));
 
         titleA.href = "../html/index.html";
-        aboutUsA.href = "";
+        aboutUsA.href = "../html/about-us.html";
         softwareA.href = "";
         supportA.href = "";
-        hyraxA.href = "hyrax.html";
+        hyraxA.href = "../html/hyrax.html";
 
         let title    = document.createElement("li");
         let aboutUs  = document.createElement("li");
