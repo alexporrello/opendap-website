@@ -1,6 +1,6 @@
 # About OPeNDAP
 
-## OPeNDAP stands for "Open-source Project for a Network Data Access Protocol"
+OPeNDAP stands for "Open-source Project for a Network Data Access Protocol"
 
 OPeNDAP is both the name of a non-profit organization and the commonly-used name of a protocol which the OPeNDAP organization has developed. The DAP2 protocol provides a discipline-neutral means of requesting and providing data across the World Wide Web. The goal is to allow end users, whoever they may be, to access immediately whatever data they require in a form they can use, all while using applications they already possess and are familiar with.
 
@@ -28,11 +28,11 @@ Dan started working with the DAP in 1995 with the development of the JGOFS handl
 
 James works on all aspects of the OPeNDAP software and is the engineering and architectural lead for the DAP-4 specification.
 
-## Dan HollowayDan Holloway
+## Dan Holloway
 
 Dan is working on client libraries and the DAP-4 specification.
 
-## Nathan PotterNathan Potter
+## Nathan Potter
 
 Nathan started working as a DAP developer in 1997 completing a Java language implementation of the DAP 2 specification. Later he developed the OLFS component of the Hyrax server. Currently he is working on Hyrax and the DAP-4 specification.
 
