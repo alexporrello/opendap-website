@@ -10,35 +10,35 @@ The OPeNDAP organization exists to develop, implement, and promulgate the OPeNDA
 
 # Corporate Officers
 
-## David Fulker, Board chair and President Emeritus
+### David Fulker, Board chair and President Emeritus
 
 Dave joined OPeNDAP as President in 2010. Dave has been active in the scientific software community for many years, 18 of which he spent as the Director of UNIDATA.
 
-## James Gallagher, President
+### James Gallagher, President
 
 James is one of the developers of the Data Access Protocol (DAP) protocol and is a co-founder of  OPeNDAP. Before that he worked on the Distributed Oceanographic Data System (DODS) project, along with Peter Cornillon, Glenn Flierl and George Milkowski. The DODS project developed the initial versions of the DAP and it's core software implementation. He assumed the role of president in 2015.
 
-## Dan Holloway, Treasurer
+### Dan Holloway, Treasurer
 
 Dan started working with the DAP in 1995 with the development of the JGOFS handler for the DODS project and has been a contributor since.
 
 # Engineering Team
 
-## James Gallagher
+### James Gallagher
 
 James works on all aspects of the OPeNDAP software and is the engineering and architectural lead for the DAP-4 specification.
 
-## Dan Holloway
+### Dan Holloway
 
 Dan is working on client libraries and the DAP-4 specification.
 
-## Nathan Potter
+### Nathan Potter
 
 Nathan started working as a DAP developer in 1997 completing a Java language implementation of the DAP 2 specification. Later he developed the OLFS component of the Hyrax server. Currently he is working on Hyrax and the DAP-4 specification.
 
 # Office Locations
 
-## Rhode Island
+### Rhode Island
 
 OPeNDAP, Inc.
 165 Dean Knauss Dr.
@@ -46,14 +46,14 @@ Narragansett, RI 02882
 Voice: +1.401.284.1304
 Fax: +1.401.284.1305
 
-## Montana
+### Montana
 
 OPeNDAP, Inc.
 125 W. Granite St., Suite 202
 Butte, MT 59701
 Voice/Fax: +1.406.723.8663
 
-## Mailing Address
+### Mailing Address
 
 OPeNDAP, Inc.
 P.O. Box 112
