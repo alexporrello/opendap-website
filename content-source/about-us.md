@@ -10,15 +10,15 @@ The OPeNDAP organization exists to develop, implement, and promulgate the OPeNDA
 
 # Corporate Officers
 
-## **David Fulker**, Board chair and President Emeritus
+## David Fulker, Board chair and President Emeritus
 
 Dave joined OPeNDAP as President in 2010. Dave has been active in the scientific software community for many years, 18 of which he spent as the Director of UNIDATA.
 
-## **James Gallagher**, President
+## James Gallagher, President
 
 James is one of the developers of the Data Access Protocol (DAP) protocol and is a co-founder of  OPeNDAP. Before that he worked on the Distributed Oceanographic Data System (DODS) project, along with Peter Cornillon, Glenn Flierl and George Milkowski. The DODS project developed the initial versions of the DAP and it's core software implementation. He assumed the role of president in 2015.
 
-## **Dan Holloway**, Treasurer
+## Dan Holloway, Treasurer
 
 Dan started working with the DAP in 1995 with the development of the JGOFS handler for the DODS project and has been a contributor since.
 
