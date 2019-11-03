@@ -1,0 +1,207 @@
+:root {
+    --nav-margin: 60px;
+    --icon-large: 50px;
+    --button-transition: .25s;
+}
+
+/******************** BUILT-IN **********************/
+
+body {
+    font-family: 'Martel', serif;
+    background: whitesmoke;
+    margin:0px;
+    font-weight: 400;
+    margin-top: var(--nav-margin);
+}
+
+h1 {
+    font-weight: 200;
+    font-size: 45px;
+    margin-top: 0px;
+    line-height: 65px;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 25px;
+}
+
+h3 {
+    font-weight: 200;
+}
+
+.material-icons {
+    color: inherit !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/*********************** TEXT ***********************/
+
+.center-text {
+    text-align: center;
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.no-margin {
+    margin:0px;
+}
+
+no-padding {
+    padding: 0px;
+}
+
+.small-bottom-margin {
+    padding-bottom: 15px;
+    padding-top: 0px;
+    margin:0px;
+}
+
+/*********************** ICON ***********************/
+
+.large-icon {
+    font-size: var(--icon-large) !important;
+}
+
+/*********************** DIV ************************/
+
+.full-page-div {
+    width: 100%;
+    height: calc(100vh - var(--nav-margin));
+    scroll-margin-top: var(--nav-margin);
+}
+
+.three-quarter-page-div {
+    width: 100%;
+    height: calc(75vh - var(--nav-margin));
+    scroll-margin-top: var(--nav-margin);
+}
+
+.eight-tenths-page-div {
+    width: 100%;
+    height: calc(80vh - var(--nav-margin));
+    scroll-margin-top: var(--nav-margin);
+}
+
+.tomato-div {
+    background-color: tomato !important;
+    color: white;
+}
+
+.coral-div {
+    background-color: coral !important;
+    color: white;
+}
+
+.divide-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.divide-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.narrow-row-gap {
+    row-gap: 1vh;
+}
+
+.medium-row-gap {
+    row-gap: 2vh;
+}
+
+.wide-row-gap {
+    row-gap: 3vh;
+}
+
+.wide-column-gap {
+    column-gap: 5%;
+}
+
+.eighty-percent-width {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.seventy-percent-width {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.sixty-percent-width {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+/*********************** BUTTON *********************/
+
+.more-button {
+    background-color: inherit;
+    color: inherit;
+    
+    padding:0px;
+    margin-left: calc(50% - calc(var(--icon-large)/2));
+    margin-bottom: 5px;
+
+    cursor: pointer;
+
+    border: none;
+    outline: none;
+
+    transition: var(--button-transition);
+}
+
+.center-material-icon {
+    margin-left: calc(50% - calc(var(--icon-large)/2));
+}
+
+/*********************** HOVER ***********************/
+
+.hover-red:hover {
+    color: tomato;
+    transition: var(--button-transition);
+}
+
+.hover-white:hover {
+    color: white;
+    transition: var(--button-transition);
+}
+
+/*********************** V-ALIGN *********************/
+
+.one-third {
+    padding-top: 33vh;
+}
+
+.one-quarter {
+    padding-top: 25vh;
+}
+
+.one-fifth {
+    padding-top: 20vh;
+}
+
+.one-sixth {
+    padding-top: 16vh;
+}
+
+.one-eighth {
+    padding-top: 12vh;
+}
+
+.one-tenth {
+    padding-top: 10vh;
+}
+
+.one-twelfth {
+    padding-top: 8vh;
+}

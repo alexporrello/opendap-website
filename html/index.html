@@ -1,77 +1,98 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Martel:200,400,800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>OPeNDAP Home</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="../css/main-pages.css">
     <link rel="stylesheet" type="text/css" href="../css/nav.css">
 </head>
 
-<body>
+<header>
     <nav id="nav"></nav>
+</header>
 
-    <div class="content">
-        <div class="introduction" id="introduction">
-            <h1 class="center-text">OPeNDAP:<br>Advanced Software for Remote Data Retrieval</h1>
-            <h2 class="center-text">OPeNDAP is a framework that simplifies<br>all aspects of scientific data networking.</h2>
-            <i id="more-info" class="material-icons large-icon down-arrow">arrow_drop_down_circle</i>
+<body>
+
+    <div class="full-page-div" id="landing">
+        <h1 class="center-text one-quarter">
+            OPeNDAP:<br>
+            Advanced Software for Remote Data Retrieval
+        </h1>
+
+        <h2 class="center-text one-tenth">
+            OPeNDAP is a framework that simplifies<br>
+            all aspects of scientific data networking.
+        </h2>
+
+        <button class="more-button one-eighth hover-red" id="what-can-you-do-button">
+            <i class="material-icons large-icon">expand_more</i>
+        </button>
+    </div>
+
+    <div class="full-page-div coral-div" id="what-can-you-do">
+        <h1 class="center-text one-fifth">
+            What you can do with<br>
+            OPeNDAP
+        </h1>
+
+        <div class="divide-three wide-column-gap medium-row-gap one-twelfth eighty-percent-width">
+            <i class="material-icons large-icon center-material-icon">dynamic_feed</i>
+            <i class="material-icons large-icon center-material-icon">cloud_queue</i>
+            <i class="material-icons large-icon center-material-icon">remove_shopping_cart</i>
+
+            <p class="center-text">
+                Transform your existing applications into OPeNDAP clients.
+            </p>
+            <p class="center-text">
+                Make your local data accessible to remote locations, regardless of local storage format.
+            </p>
+            <p class="center-text">
+                Take advantage of our paid support, or implement it yourself for free.
+            </p>
         </div>
 
-        <div id="opendap-software" class="full-screen coral">
-            <h1 style="padding-top:20vh">What you can do with<br>OPeNDAP</h1>
-            <div class="hook-text">
-                <div class="center-text">
-                    <i class="material-icons large-icon">dynamic_feed</i>
-                    <p class="hook-text-text">Transform your existing applications into OPeNDAP clients.</p>
-                </div>        
-                <div>
-                    <div class="center-text">
-                        <i class="material-icons large-icon">cloud_queue</i>
-                        <p class="hook-text-text">Make your local data accessible to remote locations, regardless of local storage format.</p>
-                    </div>
-                </div>
-                <div class="center-text">
-                    <i class="material-icons large-icon">remove_shopping_cart</i>
-                    <p class="hook-text-text">Take advantage of our paid support, or implement it yourself for free.</p>
-                </div>
-            </div>
-            <i id="more-info_2" class="material-icons large-icon down-arrow">arrow_drop_down_circle</i>
-        </div>
+        <button class="more-button one-sixth hover-red" id="software-button">
+            <i class="material-icons large-icon">expand_more</i>
+        </button>
+    </div>
 
-        <div id="products" class="full-screen">
-            <h1 style="padding-top:20vh">OPeNDAP Software</h1>
+    <div class="full-page-div" id="software">
+        <h1 class="center-text one-fifth">Our Software</h1>
 
-            <div class="products">
-                <div>
-                    <h2 id="hyrax-more-info"><a href="hyrax.html">Hyrax</a></h2>
-                    <h3>The next generation server from OPeNDAP. </h3>
-                    <p style="max-width: 500px;margin-left:auto;margin-right:auto;text-align: justify">
-                        Hyrax uses a modular design that employs a lightweight 
-                        Java servlet to provide the public-accessible 
-                        client interface, and a back-end daemon, the BES, to 
-                        handle the heavy lifting. The BES uses the same handlers 
-                        that are used with Server3 (also know as the CGI Server) 
-                        but loads those at run time.
-                    </p> 
-                </div>
-                <div>
-                    <h2>Libdap</h2>
-                    <h3>C++ SDK that contains an implementation of DAP 2.0 and DAP4.0</h3>
-                    <p style="max-width: 500px;margin-left:auto;margin-right:auto;text-align: justify">
-                        The libdap includes both Client- and Server-side 
-                        support classes. Our software distributions are signed
-                        using a public/private key pair.
-                    </p>
-                </div>
-            </div>
+        <div class="divide-two wide-column-gap wide-row-gap seventy-percent-width one-twelfth"
+            style="grid-template-rows: 0fr 0fr 1fr;">
+            <h2 class="center-text no-margin"><a href="hyrax.html">Hyrax</a></h2>
+            <h2 class="center-text no-margin">Libdap</h2>
+
+            <h3 class="center-text no-margin">
+                The next generation server from OPeNDAP.
+            </h3>
+            <h3 class="center-text no-margin">
+                C++ SDK that contains an implementation of DAP 2.0 and DAP4.0
+            </h3>
+
+            <p class="justify-text no-margin">
+                Hyrax uses a modular design that employs a lightweight
+                Java servlet to provide the public-accessible
+                client interface, and a back-end daemon, the BES, to
+                handle the heavy lifting. The BES uses the same handlers
+                that are used with Server3 (also know as the CGI Server)
+                but loads those at run time.
+            </p>
+
+            <p class="justify-text no-margin">
+                The libdap includes both Client- and Server-side
+                support classes. Our software distributions are signed
+                using a public/private key pair.
+            </p>
         </div>
     </div>
 
-    <script src="../js/footer.js"></script>
     <script src="../js/nav-bar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.0/dist/showdown.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="../js/index.js"></script>
 </body>
+
 </html>
