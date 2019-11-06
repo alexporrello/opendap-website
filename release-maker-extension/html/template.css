@@ -1,0 +1,84 @@
+:root {
+    --nav-margin: 60px;
+    --icon-large: 50px;
+    --button-transition: .25s;
+}
+
+body {
+    font-family: 'Martel', serif;
+    font-size: 14px;
+    
+    margin:0px;
+    background-color: white;
+}
+
+div {
+    outline: none;
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    position: absolute;
+    margin: 0px;
+    right: 0;
+    top: 0;
+    transition: var(--button-transition);
+    background: inherit;
+    border: none;
+    color:darkgray;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: tomato;
+    transition: var(--button-transition);
+}
+
+a {
+    text-decoration: none;
+    color: cornflowerblue;
+    outline: none;
+    transition: var(--button-transition);
+}
+
+a:hover {
+    color: tomato;
+    transition: var(--button-transition);
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 10px;
+
+    border: 1px solid lightgray;
+}
+
+td {
+    border: 1px solid lightgray;
+    padding: 10px;
+    outline: none;
+    position: relative;
+}
+
+td:focus {
+    outline: 1px solid tomato;
+}
+
+.dark-cell {
+    background: whitesmoke;
+}
+
+.material-icons {
+    color: inherit !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

@@ -1,0 +1,17 @@
+{  
+    "manifest_version": 2,  
+    "name": "OPeNDAP Software Release Maker",  
+    "description": "Template tool used to create new release pages for OPeNDAP.org.",
+    "version": "1.00",
+    "permissions": ["tabs", "storage", "https://opendap.atlassian.net/*"],
+    "browser_action": {  
+        "default_icon": "/images/extension-icon.png",  
+        "default_popup": "/html/popup.html"
+    },
+    "background": {
+        "scripts": ["js/background.js"],
+        "persistent": false
+    },
+    "web_accessible_resources": ["/html/template.html"],
+    "content_security_policy":"script-src 'self' https://apis.google.com; object-src 'self'"
+}

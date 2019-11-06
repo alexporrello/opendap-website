@@ -38,19 +38,26 @@
         </h1>
 
         <div class="divide-three wide-column-gap medium-row-gap one-twelfth eighty-percent-width">
-            <i class="material-icons large-icon center-material-icon">dynamic_feed</i>
-            <i class="material-icons large-icon center-material-icon">cloud_queue</i>
-            <i class="material-icons large-icon center-material-icon">remove_shopping_cart</i>
+            <div class="icon-with-text">
+                <i class="material-icons large-icon center-material-icon">dynamic_feed</i>
+                <p class="center-text">
+                    Transform your existing applications into OPeNDAP clients.
+                </p>
+            </div>
 
-            <p class="center-text">
-                Transform your existing applications into OPeNDAP clients.
-            </p>
-            <p class="center-text">
-                Make your local data accessible to remote locations, regardless of local storage format.
-            </p>
-            <p class="center-text">
-                Take advantage of our paid support, or implement it yourself for free.
-            </p>
+            <div class="icon-with-text">
+                <i class="material-icons large-icon center-material-icon">cloud_queue</i>
+                <p class="center-text">
+                    Make your local data accessible to remote locations, regardless of local storage format.
+                </p>
+            </div>
+
+            <div class="icon-with-text">
+                <i class="material-icons large-icon center-material-icon">remove_shopping_cart</i>
+                <p class="center-text">
+                    Take advantage of our paid support, or implement it yourself for free.
+                </p>
+            </div>
         </div>
 
         <button class="more-button one-sixth hover-red" id="software-button">
@@ -60,33 +67,38 @@
 
     <div class="full-page-div" id="software">
         <h1 class="center-text one-fifth">Our Software</h1>
+        <div class="divide-two wide-column-gap wide-row-gap seventy-percent-width one-twelfth">
+            <div class="software-link-with-text">
+                <h2 class="center-text small-bottom-margin">
+                    <a href="hyrax.html">
+                        Hyrax
+                        <i class="material-icons align-vertical-middle">chevron_right</i>
+                    </a>
+                </h2>
+                <h3 class="center-text no-margin">
+                    The next generation server from OPeNDAP.
+                </h3>
+                <p class="justify-text no-margin">
+                    Hyrax uses a modular design that employs a lightweight
+                    Java servlet to provide the public-accessible
+                    client interface, and a back-end daemon, the BES, to
+                    handle the heavy lifting. The BES uses the same handlers
+                    that are used with Server3 (also know as the CGI Server)
+                    but loads those at run time.
+                </p>
+            </div>
 
-        <div class="divide-two wide-column-gap wide-row-gap seventy-percent-width one-twelfth"
-            style="grid-template-rows: 0fr 0fr 1fr;">
-            <h2 class="center-text no-margin"><a href="hyrax.html">Hyrax</a></h2>
-            <h2 class="center-text no-margin">Libdap</h2>
-
-            <h3 class="center-text no-margin">
-                The next generation server from OPeNDAP.
-            </h3>
-            <h3 class="center-text no-margin">
-                C++ SDK that contains an implementation of DAP 2.0 and DAP4.0
-            </h3>
-
-            <p class="justify-text no-margin">
-                Hyrax uses a modular design that employs a lightweight
-                Java servlet to provide the public-accessible
-                client interface, and a back-end daemon, the BES, to
-                handle the heavy lifting. The BES uses the same handlers
-                that are used with Server3 (also know as the CGI Server)
-                but loads those at run time.
-            </p>
-
-            <p class="justify-text no-margin">
-                The libdap includes both Client- and Server-side
-                support classes. Our software distributions are signed
-                using a public/private key pair.
-            </p>
+            <div class="software-link-with-text">
+                <h2 class="center-text small-bottom-margin">Libdap</h2>
+                <h3 class="center-text no-margin">
+                    C++ SDK that contains an implementation of DAP 2.0 and DAP4.0
+                </h3>
+                <p class="justify-text no-margin">
+                    The libdap includes both Client- and Server-side
+                    support classes. Our software distributions are signed
+                    using a public/private key pair.
+                </p>
+            </div>
         </div>
     </div>
 

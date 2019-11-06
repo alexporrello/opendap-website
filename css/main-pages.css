@@ -14,6 +14,17 @@ body {
     margin-top: var(--nav-margin);
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--button-transition);
+}
+
+a:hover {
+    color: tomato;
+    transition: var(--button-transition);
+}
+
 h1 {
     font-weight: 200;
     font-size: 45px;
@@ -50,6 +61,10 @@ h3 {
     text-align: justify;
 }
 
+.align-vertical-middle {
+    vertical-align: middle;
+}
+
 .no-margin {
     margin:0px;
 }
@@ -74,7 +89,7 @@ no-padding {
 
 .full-page-div {
     width: 100%;
-    height: calc(100vh - var(--nav-margin));
+    /* height: calc(100vh - var(--nav-margin)); */
     scroll-margin-top: var(--nav-margin);
 }
 
@@ -105,10 +120,25 @@ no-padding {
     grid-template-columns: repeat(3, 1fr);
 }
 
+@media only screen and (max-width: 800px) {
+    .divide-three {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 .divide-two {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+@media only screen and (max-width: 800px) {
+    .divide-two {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .narrow-row-gap {
     row-gap: 1vh;
@@ -141,6 +171,15 @@ no-padding {
     margin-right: 20%;
 }
 
+.icon-with-text {
+    display: grid;
+    grid-template-rows: 0fr 0fr;
+}
+
+.software-link-with-text {
+    display: grid;
+    grid-template-rows: 0fr .5fr 1fr;
+}
 
 /*********************** BUTTON *********************/
 
