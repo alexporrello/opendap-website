@@ -15,7 +15,7 @@ class Jira {
         );
     }
 
-    static async getVersions() {
+    static async getFixVersions() {
         return await this.fetchData (
             "https://opendap.atlassian.net/rest/api/2/project/HK/versions"
         );

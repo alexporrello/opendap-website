@@ -2,26 +2,61 @@
     --nav-margin: 60px;
     --icon-large: 50px;
     --button-transition: .25s;
+
+    --focus-color: tomato;
+
+    --focus-border: 1px solid var(--focus-color);
+    --standard-border: 1px solid lightgray;
+
+    --standard-padding: 10px 5px;
+    --standard-margin: 10px;
+}
+
+/******************** BUILT-IN **********************/
+
+[contentEditable=true]:empty:before{
+    content:attr(data-text);
+    color: darkgray;
+    transition: var(--button-transition);
 }
 
 body {
     font-family: 'Martel', serif;
     font-size: 14px;
     
-    margin:0px;
-    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 700px;
+
+    /* margin:0px; */
+    background-color: whitesmoke;
 }
 
 div {
     outline: none;
 }
 
-.hide {
-    display: none;
+h1 {
+    font-weight: 200;
+    font-size: 22px;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 18px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+hr {
+    border: .5px solid lightgray;
 }
 
 button {
-    position: absolute;
     margin: 0px;
     right: 0;
     top: 0;
@@ -34,7 +69,64 @@ button {
 }
 
 button:hover {
-    color: tomato;
+    color: var(--focus-color);
+    transition: var(--button-transition);
+}
+
+button:focus {
+    color: var(--focus-color);
+    outline: none;
+}
+
+input {
+    font-family: inherit;
+    border: none;
+    background: inherit;
+    padding: 5px;
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+    transition: var(--button-transition);
+}
+
+input:focus {
+    outline: none;
+    border-bottom: 1px solid tomato;
+    transition: var(--button-transition);
+}
+
+textarea {
+    font-family: inherit;
+    border: none;
+    background: inherit;
+    padding: 5px;
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+    transition: var(--button-transition);
+}
+
+textarea:focus {
+    outline: none;
+    border-bottom: 1px solid tomato;
+    transition: var(--button-transition);
+}
+
+
+select {
+    border: var(--standard-border);
+    border-radius: 3px;
+    padding: 5px 10px;
+    transition: var(--button-transition);
+    font-family: inherit;
+}
+
+select:hover {
+    border: var(--focus-border);
+    transition: var(--button-transition);
+}
+
+select:focus {
+    outline: none;
+    border: var(--focus-border);
     transition: var(--button-transition);
 }
 
@@ -46,31 +138,30 @@ a {
 }
 
 a:hover {
-    color: tomato;
+    color: var(--focus-color);
     transition: var(--button-transition);
 }
 
 table {
     border-spacing: 0;
     border-collapse: collapse;
-    margin: 10px;
+    margin: 10px 0px;
 
-    border: 1px solid lightgray;
+    width: 100%;
+
+    border: var(--standard-border);
 }
 
 td {
-    border: 1px solid lightgray;
+    border: var(--standard-border);
     padding: 10px;
     outline: none;
     position: relative;
+    min-width: 70px;
 }
 
 td:focus {
-    outline: 1px solid tomato;
-}
-
-.dark-cell {
-    background: whitesmoke;
+    border-bottom: var(--focus-border);
 }
 
 .material-icons {
@@ -81,4 +172,124 @@ td:focus {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+/******************** BORDERS, SPACING, POSITIONING **********************/
+
+.right-gap {
+    margin-right: var(--standard-margin);
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.textarea {
+    font-family: inherit;
+    border: none;
+    background: inherit;
+    padding: 5px;
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+    transition: var(--button-transition);
+}
+
+.textarea:focus {
+    outline: none;
+    border-bottom: 1px solid tomato;
+    transition: var(--button-transition);
+}
+
+/******************** BUILT-IN MODIFIED **********************/
+
+.h3 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.round-button {
+    border-radius: 100%;
+    background-color: tomato;
+    width: 30px;
+    height: 30px;
+    color: white;
+    margin: 0px;
+    margin-top: 3px;
+}
+
+.round-button:hover {
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.round-button:focus {
+    color: white;
+    background-color: cornflowerblue;
+}
+
+.round-button-center {
+    margin-left: calc(50% - 15px);
+}
+
+.button-min {
+    background-color: inherit;
+    color: darkgray;
+}
+
+.button-min:hover {
+    background-color: tomato;
+}
+
+.button-min:focus {
+    background-color: tomato;
+}
+
+.round-button-plus-icon {
+    margin-left: -3px;
+    margin-top: 1px;
+}
+
+/******************** SHADING **********************/
+
+.dark-cell {
+    background: whitesmoke;
+}
+
+.light-cell {
+    background: white;
+}
+
+/******************** DISPLAY **********************/
+
+.hide {
+    opacity: 0;
+    transition: opacity var(--button-transition);
+}
+
+/******************** GET STARTED **********************/
+
+.get-started {
+    border: var(--standard-border);
+    border-radius: 3px;
+    max-width: 500px;
+    text-align: center;
+    background-color: white;
+    padding: var(--standard-padding);
+
+    margin-left: calc(50% - 250px);
+    margin-top: 250px;
+}
+
+.fix-version-select {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/******************** New Feature Section **********************/
+
+.new-feature-heading {
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    column-gap: 10px;
 }
