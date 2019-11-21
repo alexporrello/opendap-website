@@ -4,17 +4,29 @@ class Template {
 
     fixVersionTable;
 
+    newFeaturesSection;
+
     constructor() {
         document.getElementById("loadFixVersion").addEventListener('click', async () => {
             let fixVersionTable = await this.makeFixVersionTable();
-            let newFeaturesSection = this.makeNewFeaturesSection();
+            this.newFeaturesSection = this.makeNewFeaturesSection();
             
             let mainHeading = document.createElement("h1");
             mainHeading.appendChild(document.createTextNode(this.fixVersion));
 
             document.body.appendChild(mainHeading);
-            document.body.appendChild(newFeaturesSection);
+            document.body.appendChild(this.newFeaturesSection);
             document.body.appendChild(fixVersionTable);
+
+            //TODO Make export work.
+            let exportButton = UIHelper.makeIconButton("save");
+            exportButton.addEventListener('click', () => {
+                console.log({
+                    newFeatures: this.newFeatureToJSON(),
+                    bugFixes: UIHelper.convertFixVersionTableToJSON(fixVersionTable)
+                });
+            });
+            document.body.appendChild(exportButton);
         });
     }
 
@@ -39,6 +51,7 @@ class Template {
         let fixVersionData     = await Jira.searchFixVersion(selectedFixVersion.value);
 
         this.fixVersion      = selectedFixVersion.textContent;
+        
         this.fixVersionTable = UIHelper.makeFixVersionTable(fixVersionData);
 
         let bugFixHeader = document.createElement("h2");
@@ -58,11 +71,26 @@ class Template {
             "round-button-plus-icon"
         );
         addRow.addEventListener('click', () => {
-            UIHelper.makeFixVersionTableRow(1, "", "");
+            UIHelper.addRowToFixVersionTable(this.fixVersionTable);
         });
         fixVersionTableDiv.appendChild(addRow);
 
         return fixVersionTableDiv;
+    }
+
+    newFeatureToJSON() {
+        let featureSubsections = this.newFeaturesSection.getElementsByTagName("form");
+
+        let newFeatures = [];
+
+        for(let subsection of featureSubsections) {
+            newFeatures.push({
+                title: subsection.getElementsByTagName("div")[1].textContent,
+                body: subsection.getElementsByTagName("div")[2].textContent
+            });
+        }
+
+        return newFeatures;
     }
 
     makeNewFeaturesSection() {
@@ -70,6 +98,7 @@ class Template {
         newFeatures.appendChild(document.createTextNode("New Features in " + this.fixVersion + ":"));
         
         let newFeaturesSection = document.createElement("div");
+        newFeaturesSection.id = "new-features";
         newFeaturesSection.appendChild(newFeatures);
         newFeaturesSection.appendChild(this.makeNewFeaturesSubSection());
         
@@ -88,14 +117,10 @@ class Template {
 
     makeNewFeaturesSubSection() {
         let subsection = document.createElement("form");
-        subsection.addEventListener('mouseenter', () => {
-            deleteButton.classList.remove('hide');
-        });
-        subsection.addEventListener('mouseleave', () => {
-            deleteButton.classList.add('hide');
-        });
+        subsection.addEventListener('mouseenter', () => deleteButton.classList.remove('hide'));
+        subsection.addEventListener('mouseleave', () => deleteButton.classList.add('hide'));
 
-        let deleteButton = UIHelper.makeIconButton("close");//, "hide");
+        let deleteButton = UIHelper.makeIconButton("delete");
         deleteButton.tabIndex = -1;
         deleteButton.classList.add('hide');
         deleteButton.addEventListener('click', () => {
@@ -106,6 +131,7 @@ class Template {
         subsectionHeading.classList.add("h3");
         subsectionHeading.classList.add("textarea");
         subsectionHeading.contentEditable = true;
+        subsectionHeading.id = "subsectionHeading"
         subsectionHeading.setAttribute("data-text", "New Feature Heading");
 
         let heading = document.createElement("div");
@@ -118,9 +144,12 @@ class Template {
         subsectionBody.setAttribute("data-text", "New Feature Body");
         subsectionBody.classList.add("textarea");
         subsectionBody.placeholder = "New Feature Body";
+        subsectionBody.id = "subsectionBody";
         subsectionBody.rows = "1";
 
-        
+        subsectionHeading.innerHTML = "Hello world!";
+        subsectionBody.innerHTML = "This is a hello world body!";
+
         subsection.appendChild(heading);
         subsection.appendChild(subsectionBody);
         subsection.appendChild(document.createElement("hr"));

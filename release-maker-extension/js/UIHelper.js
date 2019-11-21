@@ -1,68 +1,95 @@
 class UIHelper {
 
+    static fixVersionTableToJSON(table) {
+        let rows = table.getElementsByTagName("tr");
+        
+        let tableData = [];
+
+        for(let row of rows) {
+            let cells = row.getElementsByTagName("td");
+
+            tableData.push({
+                jiraLink: cells[0].firstChild.href,
+                jiraKey: cells[0].firstChild.textContent,
+                notes: cells[1].textContent
+            });
+        }
+
+        return tableData;
+    }
+
     /**
      * Creates and returns a table suited for fixVersion data.
      * @param {JSON} releaseData The JSON response from Jira.searchFixVersion(xxx).
      */
     static makeFixVersionTable(releaseData) {
         let table = document.createElement("table");
+        table.id = "fixVersionTable";
 
         for (let i = 0; i < releaseData.issues.length; i++) {
             table.appendChild(
                 UIHelper.makeFixVersionTableRow(
-                    i,
                     releaseData.issues[i].key,
                     releaseData.issues[i].fields.summary
                 )
             );
         }
 
+        this.fixVersionTableToJSON(table);
+
         return table;
     }
 
-    static makeFixVersionTableRow(i, key, summaryText) {
+    static makeFixVersionTableRow(key, summaryText) {
         let tableRow = document.createElement("tr");
-        tableRow.setAttribute("index", i);
 
-        if (i % 2 === 0) {
-            tableRow.classList.add("dark-cell");
-        } else {
-            tableRow.classList.add("light-cell");
+        let makeLink = (key) => {
+            let link = document.createElement("a");
+            link.contentEditable = true;
+            link.setAttribute("data-text", "Issue ID");
+            link.appendChild(document.createTextNode(key));
+            link.href = 'https://opendap.atlassian.net/browse/' + key;
+            link.target = "_blank";
+            return link;
         }
 
-        let link = document.createElement("a");
-        link.href = 'https://opendap.atlassian.net/browse/' + key;
-        link.target = "_blank";
-        link.tabIndex = -1;
-        link.contentEditable = true;
-        link.setAttribute("data-text", "Issue Name");
-        link.appendChild(document.createTextNode(key));
-
         let linkHolder = document.createElement("td");
-        linkHolder.tabIndex = -1;
-        linkHolder.appendChild(link);
-
-        let deleteButton = UIHelper.makeIconButton("close", "hide");
-        deleteButton.classList.add("position-absolute");
-        deleteButton.tabIndex = -1;
-        deleteButton.addEventListener('click', () => {
-            UIHelper.removeRowFromTable(tableRow.parentNode, i);
-        });
+        linkHolder.style.minWidth = "70px";
+        linkHolder.appendChild(makeLink(key));
 
         let summary = document.createElement("td");
         summary.appendChild(document.createTextNode(summaryText))
-        summary.appendChild(deleteButton);
+        summary.classList.add("no-right-border");
         summary.contentEditable = true;
         summary.setAttribute("data-text", "Issue Summary");
-        summary.addEventListener('mouseenter', () => {
-            deleteButton.classList.remove("hide");
-        });
-        summary.addEventListener('mouseleave', () => {
-            deleteButton.classList.add("hide");
-        });
+
+        let downloadButton = UIHelper.makeIconButton("save_alt");
+        downloadButton.classList.add("no-padding");
+        downloadButton.tabIndex = -1;
+        downloadButton.addEventListener('click', async () => {
+            let issueData = await Jira.getIssueFromKey(linkHolder.textContent);
+            let newSummary = issueData.fields.summary;
+            let newLink = makeLink(linkHolder.textContent);
+
+            linkHolder.innerHTML = "";
+            linkHolder.appendChild(newLink);
+
+            summary.textContent = newSummary;
+        })
+        let download = document.createElement("td");
+        download.appendChild(downloadButton);
+
+        let deleteButton = UIHelper.makeIconButton("delete");
+        deleteButton.classList.add("no-padding");
+        deleteButton.tabIndex = -1;
+        deleteButton.addEventListener('click', () => UIHelper.removeRowFromTable(tableRow));
+        let deleteCell = document.createElement("td");
+        deleteCell.appendChild(deleteButton);
 
         tableRow.appendChild(linkHolder);
         tableRow.appendChild(summary);
+        tableRow.appendChild(download);
+        tableRow.appendChild(deleteCell);
 
         return tableRow;
     }
@@ -76,14 +103,14 @@ class UIHelper {
 
         let toConvert = [];
 
-        for(let i = 0; i < cells.length; i++) {
-            let id      = cells[i].getElementsByTagName("td")[0];
+        for (let i = 0; i < cells.length; i++) {
+            let id = cells[i].getElementsByTagName("td")[0];
             let content = cells[i].getElementsByTagName("td")[1];
 
             toConvert.push({
                 url: id.getElementsByTagName("a")[0].href,
                 key: id.getElementsByTagName("a")[0].innerHTML,
-                text: content.textContent.substring(0, content.textContent.length-5)
+                text: content.textContent.substring(0, content.textContent.length - 5)
             });
         }
 
@@ -92,30 +119,18 @@ class UIHelper {
 
     /**
      * Removes a row from a given table object, given the row's index.
-     * @param {String} table The table from which a row should be removed.
-     * @param {int} index The index of the row to be removed.
+     * @param {String} tableRow The row that should be removed from the table.
      */
-    static removeRowFromTable(table, index) {
-        let rows = table.getElementsByTagName("tr");
-        for (let i = 0; i < rows.length; i++) {
-            if (parseInt(rows[i].getAttribute("index")) === index) {
-                table.removeChild(rows[i]);
-            }
-        }
+    static removeRowFromTable(tableRow) {
+        tableRow.parentElement.removeChild(tableRow);
+    }
 
-        let newRows = table.getElementsByTagName("tr");
-        for (let i = 0; i < newRows.length; i++) {
-            newRows[i].classList.remove("dark-cell");
-            newRows[i].classList.remove("light-cell");
-            
-            if (i % 2 === 0) {
-                newRows[i].classList.add("dark-cell");
-            } else {
-                newRows[i].classList.add("light-cell");
-            }
-        }
-
-        return table;
+    /**
+     * Adds a row to the fix version table.
+     * @param {Object} table Table object to be updated.
+     */
+    static addRowToFixVersionTable(table) {
+        table.appendChild(UIHelper.makeFixVersionTableRow(4, table, "", ""));
     }
 
     /**
@@ -136,11 +151,3 @@ class UIHelper {
         return button;
     }
 }
-
-// document.addEventListener('DOMContentLoaded', async () => {
-//     let data = await Jira.searchFixVersion(10104);
-//     let table = UIHelper.makeFixVersionTable(data);
-
-//     document.body.appendChild(table);
-//     UIHelper.removeRowFromTable(table, 0);
-// });

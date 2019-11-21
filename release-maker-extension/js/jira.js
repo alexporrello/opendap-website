@@ -26,6 +26,12 @@ class Jira {
             'project = ' + project + ' AND fixVersion=' + version
         );
     }
+
+    static async getIssueFromKey(key) {
+        return await this.fetchData (
+            "https://opendap.atlassian.net/rest/api/2/issue/" + key
+        );
+    }
 }
 
 

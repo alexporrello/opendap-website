@@ -66,16 +66,12 @@ button {
     color:darkgray;
     margin-top: 10px;
     cursor: pointer;
+    outline: none;;
 }
 
 button:hover {
     color: var(--focus-color);
     transition: var(--button-transition);
-}
-
-button:focus {
-    color: var(--focus-color);
-    outline: none;
 }
 
 input {
@@ -152,12 +148,17 @@ table {
     border: var(--standard-border);
 }
 
+
+tr:nth-child(even) {
+    background: white;
+}
+
 td {
     border: var(--standard-border);
     padding: 10px;
     outline: none;
     position: relative;
-    min-width: 70px;
+    /* min-width: 70px; */
 }
 
 td:focus {
@@ -200,6 +201,19 @@ td:focus {
     transition: var(--button-transition);
 }
 
+.no-left-border {
+    border-left: 0px;
+}
+
+.no-right-border {
+    border-right: 0px;
+}
+
+.no-padding {
+    padding: 0px;
+    margin: 0px;
+}
+
 /******************** BUILT-IN MODIFIED **********************/
 
 .h3 {
@@ -237,10 +251,6 @@ td:focus {
 }
 
 .button-min:hover {
-    background-color: tomato;
-}
-
-.button-min:focus {
     background-color: tomato;
 }
 
@@ -292,4 +302,34 @@ td:focus {
     display: grid;
     grid-template-columns: 1fr 0fr;
     column-gap: 10px;
+}
+
+/******************** Context Menu **********************/
+
+.context-menu {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background-color: whitesmoke;
+    border: var(--standard-border);
+    box-shadow: 0px 0px 5px lightgrey;
+}
+
+.context-menu-item {
+    width: calc(200px - 22px);
+    margin: 5px;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
+    border: var(--standard-border);
+    transition: var(--button-transition);
+}
+
+.context-menu-item:hover {
+    background: tomato;
+    transition: var(--button-transition);
+}
+
+.context-menu-icon {
+    float: right;
 }
