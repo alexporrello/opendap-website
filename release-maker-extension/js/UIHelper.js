@@ -110,7 +110,7 @@ class UIHelper {
             toConvert.push({
                 url: id.getElementsByTagName("a")[0].href,
                 key: id.getElementsByTagName("a")[0].innerHTML,
-                text: content.textContent.substring(0, content.textContent.length - 5)
+                text: content.textContent.substring(0, content.textContent.length)
             });
         }
 

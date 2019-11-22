@@ -304,6 +304,24 @@ td:focus {
     column-gap: 10px;
 }
 
+.button-bottom-right {
+    color: white;
+    background: cornflowerblue;
+
+    position: fixed;
+
+    right: 20px;
+    top: calc(100vh - 90px);
+    
+    padding: 15px;
+    border-radius: 100%;
+}
+
+.button-bottom-right:hover {
+    color: white;
+    background: royalblue;
+}
+
 /******************** Context Menu **********************/
 
 .context-menu {

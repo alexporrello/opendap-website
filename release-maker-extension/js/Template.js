@@ -10,7 +10,7 @@ class Template {
         document.getElementById("loadFixVersion").addEventListener('click', async () => {
             let fixVersionTable = await this.makeFixVersionTable();
             this.newFeaturesSection = this.makeNewFeaturesSection();
-            
+
             let mainHeading = document.createElement("h1");
             mainHeading.appendChild(document.createTextNode(this.fixVersion));
 
@@ -18,13 +18,13 @@ class Template {
             document.body.appendChild(this.newFeaturesSection);
             document.body.appendChild(fixVersionTable);
 
-            //TODO Make export work.
             let exportButton = UIHelper.makeIconButton("save");
+            exportButton.classList.add("button-bottom-right");
             exportButton.addEventListener('click', () => {
-                console.log({
+                this.saveData({
                     newFeatures: this.newFeatureToJSON(),
                     bugFixes: UIHelper.convertFixVersionTableToJSON(fixVersionTable)
-                });
+                }, this.fixVersion + ".json");
             });
             document.body.appendChild(exportButton);
         });
@@ -34,6 +34,9 @@ class Template {
         await this.getFixVersions();
     }
 
+    /**
+     * Loads the available fix versions from Jira.
+     */
     async getFixVersions() {
         let fixVersions = await Jira.getFixVersions();
 
@@ -41,17 +44,21 @@ class Template {
             let option = document.createElement("option");
             option.value = fixVersions[i].id;
             option.appendChild(document.createTextNode(fixVersions[i].name));
+
             document.getElementById("fixVersions").appendChild(option);
         }
     }
 
+    /**
+     * Makes the fix version table from Jira.
+     */
     async makeFixVersionTable() {
-        let selectedIndex      = document.getElementById("fixVersions").selectedIndex;
-        let selectedFixVersion = document.getElementById("fixVersions")[selectedIndex];
-        let fixVersionData     = await Jira.searchFixVersion(selectedFixVersion.value);
+        let selectedIndex = document.getElementById("fixVersions").selectedIndex,
+            selectedFixVersion = document.getElementById("fixVersions")[selectedIndex],
+            fixVersionData = await Jira.searchFixVersion(selectedFixVersion.value);
 
-        this.fixVersion      = selectedFixVersion.textContent;
-        
+        this.fixVersion = selectedFixVersion.textContent;
+
         this.fixVersionTable = UIHelper.makeFixVersionTable(fixVersionData);
 
         let bugFixHeader = document.createElement("h2");
@@ -61,7 +68,6 @@ class Template {
 
         let fixVersionTableDiv = document.createElement("div");
         fixVersionTableDiv.id = "fix-version-table-div";
-
         fixVersionTableDiv.appendChild(bugFixHeader);
         fixVersionTableDiv.appendChild(this.fixVersionTable);
 
@@ -78,30 +84,18 @@ class Template {
         return fixVersionTableDiv;
     }
 
-    newFeatureToJSON() {
-        let featureSubsections = this.newFeaturesSection.getElementsByTagName("form");
-
-        let newFeatures = [];
-
-        for(let subsection of featureSubsections) {
-            newFeatures.push({
-                title: subsection.getElementsByTagName("div")[1].textContent,
-                body: subsection.getElementsByTagName("div")[2].textContent
-            });
-        }
-
-        return newFeatures;
-    }
-
+    /**
+     * Creates the section where new features can be added to the top of the page.
+     */
     makeNewFeaturesSection() {
         let newFeatures = document.createElement("h2");
         newFeatures.appendChild(document.createTextNode("New Features in " + this.fixVersion + ":"));
-        
+
         let newFeaturesSection = document.createElement("div");
         newFeaturesSection.id = "new-features";
         newFeaturesSection.appendChild(newFeatures);
         newFeaturesSection.appendChild(this.makeNewFeaturesSubSection());
-        
+
         let addFeature = UIHelper.makeIconButton(
             "add",
             "round-button round-button-center button-min",
@@ -115,6 +109,9 @@ class Template {
         return newFeaturesSection;
     }
 
+    /**
+     * Creates the area where the text for new features is entered into the app.
+     */
     makeNewFeaturesSubSection() {
         let subsection = document.createElement("form");
         subsection.addEventListener('mouseenter', () => deleteButton.classList.remove('hide'));
@@ -153,8 +150,47 @@ class Template {
         subsection.appendChild(heading);
         subsection.appendChild(subsectionBody);
         subsection.appendChild(document.createElement("hr"));
+
         return subsection;
     }
+
+    /**
+     * Converts the new feature section to JSON.
+     */
+    newFeatureToJSON() {
+        let featureSubsections = this.newFeaturesSection.getElementsByTagName("form");
+
+        let newFeatures = [];
+
+        for (let subsection of featureSubsections) {
+            newFeatures.push({
+                title: subsection.getElementsByTagName("div")[1].textContent,
+                body: subsection.getElementsByTagName("div")[2].textContent
+            });
+        }
+
+        return newFeatures;
+    }
+
+    /**
+     * Saves the page's data to Chrome's default download location.
+     * @param {JSON} data JSON data.
+     * @param {String} fileName the name of the file to be added.
+     */
+    saveData(data, fileName) {
+        let a = document.createElement("a"),
+            json = JSON.stringify(data),
+            blob = new Blob([json], { type: "octet/stream" }),
+            url = window.URL.createObjectURL(blob);
+
+        a.style = "display: none";
+        a.href = url;
+        a.download = fileName.replace(' ', '_');
+        document.body.appendChild(a);
+        a.click();
+
+        window.URL.revokeObjectURL(url);
+    };
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
