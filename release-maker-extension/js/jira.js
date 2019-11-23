@@ -9,6 +9,12 @@ class Jira {
         });
     }
 
+    static async getVersionData() {
+        return await Jira.fetchData(
+            "../sample-json/*.json"
+        );
+    }
+
     static async searchWithJQL(jql) {
         return await Jira.fetchData(
             "https://opendap.atlassian.net/rest/api/2/search?jql=" + jql

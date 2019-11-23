@@ -1,0 +1,39 @@
+.left-column {
+    min-width: 90px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 10px 0px;
+
+    width: 100%;
+
+    border: 1px solid lightgray;
+}
+
+
+tr:nth-child(even) {
+    background: white;
+}
+
+td {
+    border: 1px solid lightgray;
+    padding: 10px;
+    outline: none;
+    position: relative;
+    /* min-width: 70px; */
+}
+
+th {
+    border: 1px solid lightgray;
+    padding: 10px;
+    outline: none;
+    position: relative;
+    text-align: left;
+    font-weight: 600;
+}
+
+td:focus {
+    border-bottom: var(--focus-border);
+}

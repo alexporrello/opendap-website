@@ -22,6 +22,7 @@ class Template {
             exportButton.classList.add("button-bottom-right");
             exportButton.addEventListener('click', () => {
                 this.saveData({
+                    fixVersion: this.fixVersion,
                     newFeatures: this.newFeatureToJSON(),
                     bugFixes: UIHelper.convertFixVersionTableToJSON(fixVersionTable)
                 }, this.fixVersion + ".json");
