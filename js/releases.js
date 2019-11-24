@@ -1,34 +1,38 @@
 class ReleasePage {
 
+    versions;
+
     fixVersion = [];
 
     body = document.getElementById("content");
 
-    constructor() {
-
-    }
-
     async initialize() {
-        this.fixVersion.push(await this.fetchFixVersionData("Hyrax_1.15.0.json"));
-        this.fixVersion.push(await this.fetchFixVersionData("Hyrax_1.15.1.json"));
+        let versions = await this.getFixVersionFile();
+
+        for (let version of versions) {
+            this.fixVersion.push(await this.fetchFixVersionData(version + ".json"));
+        }
 
         for (let fixVersion of this.fixVersion) {
-            console.log(fixVersion);
+            // console.log(fixVersion);
 
             let thisFixVersion = fixVersion.fixVersion;
             let thisNewFeatures = fixVersion.newFeatures;
             let thisBugFixes = fixVersion.bugFixes;
 
             let heading = document.createElement("h1");
+            heading.id = thisFixVersion;
             heading.appendChild(document.createTextNode(thisFixVersion));
             this.body.appendChild(heading);
 
             let subheading = document.createElement("h2");
+            subheading.id = thisFixVersion + "h2";
             subheading.appendChild(document.createTextNode("New Features in " + thisFixVersion));
             this.body.appendChild(subheading);
 
             for (let newFeature of thisNewFeatures) {
                 let newFeatureHeading = document.createElement("h3");
+                newFeatureHeading.id = newFeature.title;
                 newFeatureHeading.appendChild(document.createTextNode(newFeature.title));
 
                 let newFeatureBody = document.createElement("p");
@@ -74,15 +78,51 @@ class ReleasePage {
 
             this.body.appendChild(table);
         }
+
+        let allNodes = document.getElementById("content").childNodes;
+
+        for (let i = 0; i < allNodes.length; i++) {
+            if (allNodes[i].nodeName === "H1" || allNodes[i].nodeName === "H2") {
+                let thisLink = document.createElement("h4");
+
+                thisLink.classList.add("pointer");
+                thisLink.classList.add("hover-red");
+                thisLink.appendChild(document.createTextNode(allNodes[i].innerHTML));
+                thisLink.id = allNodes[i].id + "_map";
+                thisLink.addEventListener('click', () => {
+                    document.getElementById(allNodes[i].id).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                })
+
+                document.getElementById("left-nav").appendChild(thisLink);
+            }
+        }
     }
 
+    getFixVersionFile() {
+        return new Promise(resolve => {
+            fetch("../sample-json/versions.json")
+                .then(res => res.json())
+                .then(data => {
+                    let versions = [];
+
+                    for (let version of data.versions) {
+                        versions.push(version.version);
+                    }
+
+                    resolve(versions);
+                });
+        });
+    }
 
     fetchFixVersionData(filename) {
         return new Promise(resolve => {
             fetch("../sample-json/" + filename)
                 .then(res => res.json())
                 .then(data => resolve(data));
-        })
+        });
     }
 }
 
