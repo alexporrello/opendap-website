@@ -1,0 +1,12 @@
+<div *ngFor="let data of allVersionData">
+    <h1>{{ data.fixVersion | titlecase }}</h1>
+
+    <h2>New Features in {{ data.fixVersion | titlecase }}</h2>
+
+    <div *ngFor="let newFeature of data['newFeatures']">
+        <h3> {{ newFeature.title }} </h3>
+        <p> {{ newFeature.body }} </p>
+    </div>
+
+    
+</div>
