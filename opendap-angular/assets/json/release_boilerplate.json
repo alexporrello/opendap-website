@@ -1,0 +1,110 @@
+{
+    "hyraxVersion": 1.16,
+    "dependencies": {
+        "java": 1.7,
+        "tomcat": [
+            7,
+            8
+        ],
+        "linux": [
+            "RPMs provided for CentOS 6.9 and 7.13",
+            "Ubuntu",
+            "OSX",
+            "Other suitable Unix OS"
+        ],
+        "download": {
+            "link": "https://www.opendap.org/pub/source/hyrax-dependencies-1.21.tar",
+            "gpgSignature": "https://www.opendap.org/pub/source/hyrax-dependencies-1.21.tar.sig",
+            "text": "This bundles the NetCDF, HDF4, HDF5, and other libraries that the Hyrax handlers require."
+        }
+    },
+    "links": {
+        "hyraxGitHubRepo": "https://github.com/opendap/hyrax",
+        "buildHyraxFromGitHubDirections": "http://docs.opendap.org/index.php/Hyrax_GitHub_Source_Build",
+        "snapshotBuild": "https://s3.amazonaws.com/opendap.travis.build/index.html"
+    },
+    "softwareDownloads": {
+        "olfs": {
+            "version": "1.18.5",
+            "link": "https://www.opendap.org/pub/olfs/olfs-1.18.5-webapp.tgz",
+            "gpgSignature": "https://www.opendap.org/pub/olfs/olfs-1.18.5-webapp.tgz.sig",
+            "downloadNotes": [
+                "Unpack using 'tar -xvf filename' and follow the instructions in the README file.",
+                "(Requires Java 1.7 Built using Java 8 Tested against Tomcat 8.5.34)"
+            ],
+            "robots": {
+                "link": "https://www.opendap.org/pub/olfs/robots-olfs-1.18.5-webapp.tgz",
+                "gpgSignature": "https://www.opendap.org/pub/olfs/robots-olfs-1.18.5-webapp.tgz.sig",
+                "notes": "This archive contains a web archive file that runs in the Tomcat server's root context that returns a response for '/robots.txt' so that your site can be crawled using the automatically-built site maps added in 1.15.2. This is beta software; we'd appreciate feedback on it."
+            },
+            "sourceCode": {
+                "download": "https://www.opendap.org/pub/olfs/olfs-1.18.5-src.tgz",
+                "gpgSignature": "https://www.opendap.org/pub/olfs/olfs-1.18.5-src.tgz.sig"
+            },
+            "documentation": {
+                "download": "https://www.opendap.org/pub/olfs/olfs-1.18.5-doc.tgz",
+                "gpgSignature": "https://www.opendap.org/pub/olfs/olfs-1.18.5-doc.tgz.sig"
+            },
+            "notes": [
+                "CentOS 6.3 comes with Java 6; Oracle has stopped supporting that version of Java; update your machine if you haven't already. Use yum search java-1.7 to find the correct package. For our servlet you will only need the JRE - the Java Runtime Environment. You will also need to employ the 'alternatives' tool to make java 7 JVM the preferred alternative.",
+                "On CentOS 6.6 it's Java 7 + Tomcat 7 if you're using yum to install things. Tomcat 7 + Java 8 will not work!"
+            ]
+        },
+        "libdap": {
+            "version": "3.20.4-1",
+            "centOS_6": {
+                "link": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm",
+                "gpgSignature": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/libdap-3.20.4-1.el6.x86_64.rpm.sig"
+            },
+            "centOS_7": {
+                "link": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm",
+                "gpgSignature": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/libdap-3.20.4-1.el7.x86_64.rpm.sig"
+            },
+            "sourceCode": {
+                "gitHub": "https://github.com/opendap/libdap",
+                "download": "https://www.opendap.org/pub/source/libdap-3.20.4.tar.gz",
+                "gpgSignature": "https://www.opendap.org/pub/source/libdap-3.20.4.tar.gz.sig"
+            }
+        },
+        "bes": {
+            "version": "3.20.5-1",
+            "centOS_6": {
+                "link": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm",
+                "gpgSignature": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-6.x/bes-3.20.5-1.static.el6.x86_64.rpm.sig"
+            },
+            "centOS_7": {
+                "link": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm",
+                "gpgSignature": "https://www.opendap.org/pub/binary/hyrax-1.16/centos-7.x/bes-3.20.5-1.static.el7.x86_64.rpm.sig"
+            },
+            "sourceCode": {
+                "gitHub": "https://github.com/OPENDAP/bes",
+                "download": "https://www.opendap.org/pub/source/bes-3.20.5.tar.gz",
+                "gpgSignature": "https://www.opendap.org/pub/source/bes-3.20.5.tar.gz.sig"
+            },
+            "notes": "These RPMs include statically linked copies of all of the modules/handlers we support, including HDF4 & 5 with HDFEOS support. There is no need to install packages from EPEL with this RPM. Other sources of RPM packages will likely provide a bes RPM that uses handlers linked (dynamically) to dependencies from their distributions (CentOS, Fedora, etc.). Note: the bes.conf file has important changes in support of JSON-LD. Make sure to look at /etc/bes/bes.conf.rpmnew after you insta/upgrade the BES with these RPMs."
+        },
+        "ncWMS2": {
+            "version": "latest",
+            "url": "http://reading-escience-centre.github.io/edal-java/",
+            "link": {
+                "url": "http://docs.opendap.org/index.php/Hyrax_WMS",
+                "linkDescription": "Configuration instructions."
+            },
+            "notes": "Use the EDAL web page to locate the latest ncWMS2 'Servlet Container' software bundle as a WAR file. Install it into the same Tomcat instance as the OLFS."
+        },
+        "docker": [
+            {
+                "linkTitle": "Docker Images",
+                "link": "https://github.com/OPENDAP/hyrax-docker/blob/master/README.md"
+            },
+            {
+                "linkTitle": "Hyrax",
+                "link": "https://hub.docker.com/r/opendap/hyrax"
+            },
+            {
+                "linkTitle": "Hyrax with ncWMS",
+                "link": "https://hub.docker.com/r/opendap/hyrax_ncwms"
+            }
+        ]
+    }
+}
