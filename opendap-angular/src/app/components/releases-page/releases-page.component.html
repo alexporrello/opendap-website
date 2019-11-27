@@ -1,12 +1,33 @@
-<div *ngFor="let data of allVersionData">
-    <h1>{{ data.fixVersion | titlecase }}</h1>
+<div class="page-padding">
+    <!-- <app-boilerplate [version]="version"></app-boilerplate> -->
 
-    <h2>New Features in {{ data.fixVersion | titlecase }}</h2>
+    <div *ngFor="let data of allVersionData">
+        <h1>{{ data.fixVersion | titlecase }}</h1>
 
-    <div *ngFor="let newFeature of data['newFeatures']">
-        <h3> {{ newFeature.title }} </h3>
-        <p> {{ newFeature.body }} </p>
+        <h2>New Features in {{ data.fixVersion | titlecase }}</h2>
+
+        <div *ngFor="let newFeature of data['newFeatures']">
+            <h3> {{ newFeature.title }} </h3>
+            <p> {{ newFeature.body }} </p>
+        </div>
+
+        <h2>Bug Fixes in {{ data.fixVersion | titlecase }}</h2>
+
+        <table mat-table>
+            <tr>
+                <th>Key</th>
+                <th>Notes</th>
+            </tr>
+            <tr *ngFor="let bugFix of data['bugFixes']">
+                <td>
+                    <a href={{bugFix.url}} target="_blank">{{ bugFix.key }}</a>
+                </td>
+                <td>
+                    {{ bugFix.text }}
+                </td>
+            </tr>
+        </table>
     </div>
 
-    
+    <app-boilerplate *ngIf="version" [version]="version"></app-boilerplate>
 </div>

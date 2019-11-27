@@ -30,6 +30,10 @@ $accent-color: tomato;
 
 $standard-border: 1px solid $accent-color;
 
+h1, h2, h3 {
+    font-weight: 300;
+}
+
 nav {
     border-bottom: $standard-border;
     display: flex;
@@ -54,6 +58,10 @@ nav ul li:hover {
     color: $accent-color;
 }
 
+strong {
+    font-weight: 500;
+}
+
 nav h1 {
     margin: 0px;
     font-weight: 100;
@@ -68,5 +76,27 @@ a:hover {
     color: inherit;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border-bottom: solid lightgray 1px;
+    padding: 10px 10px;
+    text-align: left;
+    font-size: 16px;
+}
+
+th {
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+td:nth-child(1) {
+    min-width: 100px;
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Martel, "Times New Roman", sans-serif; }
+body { margin: 0; font-family: Roboto, "Arial", sans-serif; }

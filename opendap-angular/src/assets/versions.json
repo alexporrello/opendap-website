@@ -1,6 +1,8 @@
 {
     "versions": [
-        {"version": "Hyrax_1.15.0"},
-        {"version": "Hyrax_1.15.1"}
+        {
+            "version": "Hyrax_1.15",
+            "numReleases": 2
+        }
     ]
 }

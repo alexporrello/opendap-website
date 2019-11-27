@@ -14,6 +14,10 @@ export class DataReaderService {
 
   constructor(private http: HttpClient) { }
 
+  getBoilerplateFile(version: String):Observable<any> {
+    return this.http.get("../assets/" + version + "_boilerplate.json");
+  }
+
   getReleaseFile(filename: String): Observable<VersionData> {
     return this.http.get<VersionData>("../assets/" + filename + ".json");
   }

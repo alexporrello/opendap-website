@@ -12,15 +12,22 @@ export class ReleasesPageComponent implements OnInit {
 
   allVersionData: VersionData[] = [];
 
+  boilerplate: any;
+
+  version: String;
+
   constructor(private dataReaderService: DataReaderService) { }
 
   ngOnInit() {
     this.dataReaderService.getReleaseData().subscribe(data => {
       for (let version of data.versions) {
-        this.dataReaderService.getReleaseFile(version.version).subscribe(data => {
-          this.allVersionData.push(data);
-          console.log(data);
-        });
+        this.version = version.version;
+
+        for (let i = 0; i < version.numReleases; i++) {
+          this.dataReaderService.getReleaseFile(version.version + "." + i).subscribe(data => {
+            this.allVersionData.push(data);
+          });
+        }
       }
     });
   }
