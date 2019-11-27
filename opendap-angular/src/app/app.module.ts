@@ -14,14 +14,14 @@ import { ReleasesPageComponent } from './components/releases-page/releases-page.
 
 import { HttpClientModule } from '@angular/common/http';
 import { BoilerplateComponent } from './components/boilerplate/boilerplate.component';
-
-
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReleasesPageComponent,
     BoilerplateComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

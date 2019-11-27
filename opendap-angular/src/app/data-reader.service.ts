@@ -25,4 +25,16 @@ export class DataReaderService {
   getReleaseData(): Observable<Versions> {
     return this.http.get<Versions>("../assets/versions.json");
   }
+
+  getAboutUsPage() {
+    return this.http.get("../assets/about-us.md");
+  }
+
+  async getMarkdown():Promise<string> {
+    return new Promise(resolve => {
+      fetch("../../assets/about-us.md").then(res => res.text()).then(text => {
+        resolve(text);
+      })
+    })
+  }
 }

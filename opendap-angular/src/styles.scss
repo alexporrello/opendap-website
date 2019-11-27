@@ -37,6 +37,9 @@ h1, h2, h3 {
 nav {
     border-bottom: $standard-border;
     display: flex;
+    position: fixed;
+    width: 100%;
+    background: white;
 }
 
 nav ul {
