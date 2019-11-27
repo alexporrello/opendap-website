@@ -1,14 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import {MatExpansionModule} from '@angular/material/expansion';
+import {
+  MatExpansionModule,
+  MatDividerModule,
+  MatButtonModule,
+  MatMenuModule,
+  MatIconModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDividerModule } from '@angular/material/divider';
 
 import { ReleasesPageComponent } from './components/releases-page/releases-page.component';
 
@@ -28,8 +33,11 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatButtonModule,
     MatDividerModule,
+    MatIconModule,
     MatExpansionModule,
+    MatMenuModule,
     FormsModule
   ],
   providers: [],

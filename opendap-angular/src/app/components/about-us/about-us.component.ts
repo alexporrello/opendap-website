@@ -15,11 +15,8 @@ export class AboutUsComponent implements OnInit {
   html:string;
 
   async ngOnInit() {
-
-    let converter = new showdown.Converter();
-
-    let markdown = await this.dataReaderService.getMarkdown();
-    this.html = converter.makeHtml(markdown);
+    let markdown = await this.dataReaderService.getMarkdown("about-us.md");
+    this.html = new showdown.Converter().makeHtml(markdown);
   }
 
 }

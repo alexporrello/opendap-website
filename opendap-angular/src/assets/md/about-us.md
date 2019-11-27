@@ -41,22 +41,31 @@ Nathan started working as a DAP developer in 1997 completing a Java language imp
 ### Rhode Island
 
 OPeNDAP, Inc.
+
 165 Dean Knauss Dr.
+
 Narragansett, RI 02882
+
 Voice: +1.401.284.1304
+
 Fax: +1.401.284.1305
 
 ### Montana
 
 OPeNDAP, Inc.
+
 125 W. Granite St., Suite 202
+
 Butte, MT 59701
+
 Voice/Fax: +1.406.723.8663
 
 ### Mailing Address
 
 OPeNDAP, Inc.
+
 P.O. Box 112
+
 Saunderstown, RI 02874
 
 # Technical Support

@@ -1,5 +1,8 @@
-.border-gap {
+.top-gap {
     margin-top: 25px;
+}
+
+.bottom-gap {
     margin-bottom: 25px;
 }
 
@@ -8,4 +11,10 @@
     height: auto;
     margin-top: -4px;
     margin-right: 7px;
+}
+
+.right-gap {
+    margin-right: 7px;
+    margin-top: -3px;
+
 }

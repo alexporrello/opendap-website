@@ -26,52 +26,23 @@ $opendap-angular-theme: mat-light-theme($opendap-angular-primary, $opendap-angul
 // that you are using.
 @include angular-material-theme($opendap-angular-theme);
 
-$accent-color: tomato;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Arial", sans-serif; }
 
+$accent-color: tomato;
 $standard-border: 1px solid $accent-color;
+
 
 h1, h2, h3 {
     font-weight: 300;
-}
-
-nav {
-    border-bottom: $standard-border;
-    display: flex;
-    position: fixed;
-    width: 100%;
-    background: white;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0px;
-    margin-left: auto;
-    margin-right: 20px;
-}
-
-nav ul li {
-    margin: 15px 15px 0px 15px;
-    text-decoration: none;
-}
-
-nav ul li:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    color: $accent-color;
 }
 
 strong {
     font-weight: 500;
 }
 
-nav h1 {
-    margin: 0px;
-    font-weight: 100;
-    margin: 10px 20px;
-}
-
 a {
+    color: cornflowerblue;
     text-decoration: none;
 }
 
@@ -101,5 +72,15 @@ td:nth-child(1) {
     min-width: 100px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Arial", sans-serif; }
+
+
+.page-padding {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+p {
+    text-align: justify;
+}

@@ -15,24 +15,24 @@ export class DataReaderService {
   constructor(private http: HttpClient) { }
 
   getBoilerplateFile(version: String):Observable<any> {
-    return this.http.get("../assets/" + version + "_boilerplate.json");
+    return this.http.get("../assets/json/" + version + "_boilerplate.json");
   }
 
   getReleaseFile(filename: String): Observable<VersionData> {
-    return this.http.get<VersionData>("../assets/" + filename + ".json");
+    return this.http.get<VersionData>("../assets/json/" + filename + ".json");
   }
 
   getReleaseData(): Observable<Versions> {
-    return this.http.get<Versions>("../assets/versions.json");
+    return this.http.get<Versions>("../assets/json/versions.json");
   }
 
   getAboutUsPage() {
-    return this.http.get("../assets/about-us.md");
+    return this.http.get("../assets/json/about-us.md");
   }
 
-  async getMarkdown():Promise<string> {
+  async getMarkdown(filename:String):Promise<string> {
     return new Promise(resolve => {
-      fetch("../../assets/about-us.md").then(res => res.text()).then(text => {
+      fetch(`../../assets/md/${filename}`).then(res => res.text()).then(text => {
         resolve(text);
       })
     })
